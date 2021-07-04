@@ -1,0 +1,433 @@
+Delivered-To: andrejkrupovec@gmail.com
+Received: by 2002:a5e:c244:0:0:0:0:0 with SMTP id w4csp1773743iop;
+        Mon, 28 Jun 2021 01:31:30 -0700 (PDT)
+X-Received: by 2002:a92:8e04:: with SMTP id c4mr17566824ild.219.1624869090129;
+        Mon, 28 Jun 2021 01:31:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624869090; cv=none;
+        d=google.com; s=arc-20160816;
+        b=VUV6s6gijioyLE4z9XbXAd4TcQPspVhZH/+J5cJV8PjzJzhIW8gNrdGkBfykGWkuFk
+         iyD4CRVFVnNj1FDsgN+8D+w5taQUOdVQwqRA74b5DG+JGQgbIPv13XtFJ6Entf7x0aP7
+         /hqMWGXT9ux+J8SCgueOoPw/tX9b3BDdAWCQgCsazDexlPYKnZtjX7gYR/tMmZd2eoAS
+         +uIDNFXS6/LjJQk1DsIufUa3FLIZv50q29IhRgdxT6uabtIoyYBgSeaJDMN9fjvcFDil
+         cWFQtUXGXQ7eKxy2tp7U3J01BHOZl/JPI/PKrcc2a9whCcY8gJZZyNYcdxwpo2lIpHHl
+         dbog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=Geo3eLsIc5a3tSDIZWplQTHCcy9cPN8d6ozVVwoPQV0=;
+        b=0HJagrOqTgP+IvJZgmUEAi6Kfyo0Mdlm2di4pgOEejcDwH7DHiydqUenGkcE/+fFSD
+         SmnfKQTcd3QubeIe/K2WXH/YgY0ORCqmcSi5ek1yRIXT/aryQz7zSyQrsBYK50mxG6yx
+         IrbX6hsmjxZB90bcubx/Hkrd+tJKt6hq7lGs3yPu8fvo3WysGDeXkho/xYzksMswRm8Z
+         aTkcaq9xAPoIPZu7Y/WHo/akbcN242f81UheS/lX5t/U7lAIWLt3F8MxIy5tIWaPSCti
+         +zDYpFS8UMHZnIqB22UwcBdmYgbOB2IAfBJtKZxwIs2ge54Li5+E7MZ1PYu+J7IK3X3N
+         +w9w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@informationplanet.com.au header.s=google header.b=Xt3S3nGZ;
+       spf=pass (google.com: domain of olga.romanova@informationplanet.com.au designates 209.85.220.41 as permitted sender) smtp.mailfrom=olga.romanova@informationplanet.com.au
+Return-Path: <olga.romanova@informationplanet.com.au>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id x189sor5676908iof.77.2021.06.28.01.31.29
+        for <andrejkrupovec@gmail.com>
+        (Google Transport Security);
+        Mon, 28 Jun 2021 01:31:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of olga.romanova@informationplanet.com.au designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@informationplanet.com.au header.s=google header.b=Xt3S3nGZ;
+       spf=pass (google.com: domain of olga.romanova@informationplanet.com.au designates 209.85.220.41 as permitted sender) smtp.mailfrom=olga.romanova@informationplanet.com.au
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=informationplanet.com.au; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=Geo3eLsIc5a3tSDIZWplQTHCcy9cPN8d6ozVVwoPQV0=;
+        b=Xt3S3nGZdbEXfF/2S+6xzYU91hNDxqzCueoImnBPxC0Q94JDHUPlIvKb8SlOKBO3GU
+         zVE5cFEZxjpKcuHhwJS811rJP3yjRqJ0qWaLbPf+R2KkMAprUihOnC1xOkh5s6FXUeYM
+         Ntb7DzvkIani6/IuFzXat+w/N0Q08ieG+a9zo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=Geo3eLsIc5a3tSDIZWplQTHCcy9cPN8d6ozVVwoPQV0=;
+        b=WL7wT4hs2WMqAIt5eRXca6Sp4j0bkj6H5FPfRl2fcjdNbus73eLb23Ql3tyvhRfhsC
+         qMpsy6ImHtofPRmncLEuKIcRkPSf9DtBn/QMoNNhxT51UTM7fXE6oOSxyLcFrQzbu4TG
+         5VY9w0IFETK9sHOsR932DYP6PNMyBRZ87r4PR5AC49onl9wrp91tLfbMTRWwmvN2K2l+
+         QEm+s2dxdHARBH82/vWtQAg4pJYIhXM94wnYRMyjEyrX6PeVoeAqhYhL8ud+jliJBxVe
+         3f5vrks4ozudzJziaDQKKl0Q2AI/oXgzCrqWohgxYlYKA3POkbTB4yHg5ANOZf2WxpDL
+         lM0A==
+X-Gm-Message-State: AOAM532JP6R2yRsjHFwwL264H3IyCODQz0V4lVo/QikmZQo62lPvMcep nAHgkhytRgzFCD1tKTJbvSZDHtKT8cJaqmbXU5winJYvv7T8pgCy56h93dcd5trvYANOMqPcTIP Hik/oStMSezD/52a/wMMrHqZsvedWO8sf4kIOFFFVAk4ECvuM0ZxWOPIYOQSnCd2Z6la4nIuroP +gT50GoyeXzUDmiqk1DKidGu/9+Ro7WJ9ym7bCJTMOSsg6TXTAXPRoEEvX0h6/q21pu9eEaW997 0hL0dZjpDily2dLn44KR+18p9mQZ19jnEAEQQ==
+X-Google-Smtp-Source: ABdhPJyZh5r7hVvZeK3sKOrthjdcVvR5i3Q+4re9XtFoL57vvfTf7pUiFHF9eDJjARF0iggq6ma0wse3iaXch+iA4d0=
+X-Received: by 2002:a5d:960b:: with SMTP id w11mr20547187iol.138.1624869089455; Mon, 28 Jun 2021 01:31:29 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAFZ+OjR1g2N+P6j=tVMYNTortshS-6S6EstaOXVEVPX2mn_Ntw@mail.gmail.com> <CAFdNiyqGWEO8aoC3P0Vw9Cza8ZPmc=Uwg1UuBxGAUT53ezm5fA@mail.gmail.com>
+In-Reply-To: <CAFdNiyqGWEO8aoC3P0Vw9Cza8ZPmc=Uwg1UuBxGAUT53ezm5fA@mail.gmail.com>
+From: Olga Romanova <olga.romanova@informationplanet.com.au>
+Date: Mon, 28 Jun 2021 18:31:17 +1000
+Message-ID: <CAFZ+OjQAEGC3xufzTCikoUQam-st+ecn3HVE+zDyBQOHSnuc2w@mail.gmail.com>
+Subject: Re: Nutrition + Cyber Security
+To: Andrej Krupovec <andrejkrupovec@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000e2427305c5cf5008"
+
+--000000000000e2427305c5cf5008
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Andrej,
+
+hope you are well despite the lockdown.
+
+So in case you would like to move forward, please let me know if you like
+the option of studying Bachelor or the Vocational course more.
+
+When would you like to start and how long would you like to study?
+
+AS we spoke previously, the steps would be:
+- to collect all your documents (passport, visa, current COE, your studies
+here and in your home country, your current insurance, CV)
+- to apply for Letter of Offer from the chosen college
+- to request a release from your current college
+- then payment of the first installment and change o course
+
+
+Please let me know in case anything is not clear :)
+
+Olga
+
+
+*Olga Romanova*
+Education Planner
+
+*Phone:* (612) 9283 6161
+(+61) 439559941
+
+*Head Office*
+Level 3, 484 Kent St - Sydney 2000 - NSW
+<https://www.facebook.com/IP.Australia/>
+<https://www.instagram.com/informationplanetaustralia/>
+<https://www.linkedin.com/company/information-planet/>
+<https://www.youtube.com/channel/UCk_ueM9PiyoDnb2vPKqmHww>
+<https://www.informationplanet.com.au/>
+[image: meal voucher] <https://www.informationplanet.com.au/>
+
+
+On Mon, Jun 28, 2021 at 12:12 PM Andrej Krupovec <andrejkrupovec@gmail.com>
+wrote:
+
+> Hey Olga,
+>
+> I'll take my time and gonna focus on cyber security.
+>
+> On Fri, 25 Jun 2021 at 18:08, Olga Romanova <
+> olga.romanova@informationplanet.com.au> wrote:
+>
+>> Hi Andrej,
+>>
+>> how are you today? Hope you are safe and not in lockdown :/
+>>
+>> As we spoke, I checked some new courses for you.
+>>
+>>
+>> Nutrition:
+>>
+>> *Torrens University - Bachelor of Health Science (Clinical Nutrition)*
+>> - Sydney, Brisbane, Melbourne
+>> - 3 years
+>> - price: 16.030 AUD  (indicative annual fee, 2021)
+>> - intake in September 2021 or February 2022
+>>
+>>
+>> *University of Newcastle - Bachelor of Food Science and Human Nutrition*
+>> - Central Coast
+>> - 3 years
+>> - price: AUD 40,300  (indicative annual fee, 2021)
+>> - intake February 2022
+>>
+>>
+>> *Flinders University - Bachelor of Human Nutrition*
+>> - Adelaide
+>> - 3 years
+>> - price: AUD 38.000   (indicative annual fee, 2021)
+>> - intake March 2022
+>>
+>>
+>> *Western Sydney University -  Bachelor of Science (Nutrition and Food
+>> Science) *
+>> -  Sydney
+>> - 3 years
+>> - price: AUD 32.000  (indicative annual fee, 2021)
+>> - intake February 2022
+>>
+>>
+>>
+>> Cyber Security:
+>>
+>> *ACBI - Advanced Diploma of Information Technology (Cyber Security)*
+>> - Sydney
+>> - 2 years
+>> - 1.500 AUD per term (12.000 total) + 200 enrollment fee
+>> (can be packaged with Diploma of IT - extra 1 year)
+>>
+>>
+>> *Kent Institute - Bachelor of Information Technology (Cyber Security)*
+>> - Sydney
+>> - 3 years
+>> - price: 14.600 AUD (indicative annual fee, 2021)
+>> - price with scholarship (you would need to keep having good grades):
+>> 11.900 AUD  (indicative annual fee, 2021)
+>> - intake: November 2021
+>>
+>>
+>> *Flinders University -  Bachelor of Information Technology (Network and
+>> Cybersecurity Systems) *
+>> - Adelaide
+>> - 3 years
+>> - price: AUD 36.000   (indicative annual fee, 2021)
+>> - intake March 2022
+>>
+>>
+>> Please let me know if you find any of the courses interesting for you or
+>> you would like me to check anything else :)
+>>
+>> Have a great day and enjoy the weekend! Stay safe!
+>>
+>> Olga
+>>
+>>
+>> *Olga Romanova*
+>> Education Planner
+>>
+>> *Phone:* (612) 9283 6161
+>> (+61) 439559941
+>>
+>> *Head Office*
+>> Level 3, 484 Kent St - Sydney 2000 - NSW
+>> <https://www.facebook.com/IP.Australia/>
+>> <https://www.instagram.com/informationplanetaustralia/>
+>> <https://www.linkedin.com/company/information-planet/>
+>> <https://www.youtube.com/channel/UCk_ueM9PiyoDnb2vPKqmHww>
+>> <https://www.informationplanet.com.au/>
+>> [image: meal voucher] <https://www.informationplanet.com.au/>
+>>
+>
+>
+> --
+> Respectfully,
+>
+> *Andrej Krupovec*
+>
+
+--000000000000e2427305c5cf5008
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Hi Andrej, <br></div><div><br></div><div>hope you are=
+ well despite the lockdown. <br></div><div><br></div><div>So in case you wo=
+uld like to move forward, please let me know if you like the option of stud=
+ying Bachelor or the Vocational course more. <br></div><div><br></div><div>=
+When would you like to start and how long would you like to study? <br></di=
+v><div><br></div><div>AS we spoke previously, the steps would be: <br></div=
+><div>- to collect all your documents (passport, visa, current COE, your st=
+udies here and in your home country, your current insurance, CV)<br></div><=
+div>- to apply for Letter of Offer from the chosen college</div><div>- to r=
+equest a release from your current college</div><div>- then payment of the =
+first installment and change o course<br></div><div><br></div><div><br></di=
+v><div>Please let me know in case anything is not clear :)</div><div><br></=
+div><div>Olga<br></div><div><br></div><div dir=3D"ltr"><div><div dir=3D"ltr=
+" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"=
+ltr">
+<table width=3D"500" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+  <tbody>
+    <tr>
+      <th rowspan=3D"3" scope=3D"row"><img src=3D"https://informationplanet=
+australia.s3-ap-southeast-2.amazonaws.com/Signature/Sydney/OlgaRomanova.png=
+" alt=3D"" style=3D"margin-bottom:0px;padding-bottom:0px" width=3D"210" bor=
+der=3D"0" align=3D"bottom"></th>
+      <td colspan=3D"5"><br></td>
+      <td><img src=3D"https://s3-ap-southeast-2.amazonaws.com/informationpl=
+anetaustralia/Signature/images/NHS_02.png" alt=3D"" width=3D"160" height=3D=
+"44"></td>
+    </tr>
+    <tr>
+      <td colspan=3D"6"><p><span><span><b>Olga Romanova</b></span><b><br>
+      </b>Education Planner<br>
+      <br>
+      <b>Phone:</b> (612) 9283 6161<br>
+      <img src=3D"https://informationplanetaustralia.s3-ap-southeast-2.amaz=
+onaws.com/Signature/images/WhatsApp-Icon.png" alt=3D"" width=3D"28" height=
+=3D"28" align=3D"absmiddle"> (+61) 439559941</span></p>
+        <p><b>Head Office</b><br>
+      Level 3, 484 Kent St - Sydney 2000 - NSW</p></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://www.facebook.com/IP.Australia/" target=3D"_bla=
+nk"><img src=3D"https://s3-ap-southeast-2.amazonaws.com/informationplanetau=
+stralia/Signature/images/NHS_05.png" alt=3D"" width=3D"34" height=3D"34"></=
+a></td>
+      <td><a href=3D"https://www.instagram.com/informationplanetaustralia/"=
+ target=3D"_blank"><img src=3D"https://s3-ap-southeast-2.amazonaws.com/info=
+rmationplanetaustralia/Signature/images/NHS_06.png" alt=3D"" width=3D"35" h=
+eight=3D"35"></a></td>
+      <td><a href=3D"https://www.linkedin.com/company/information-planet/" =
+target=3D"_blank"><img src=3D"https://s3-ap-southeast-2.amazonaws.com/infor=
+mationplanetaustralia/Signature/images/NHS_07.png" alt=3D"" width=3D"34" he=
+ight=3D"34"></a></td>
+      <td>=C2=A0</td>
+      <td><a href=3D"https://www.youtube.com/channel/UCk_ueM9PiyoDnb2vPKqmH=
+ww" target=3D"_blank"><img src=3D"https://s3-ap-southeast-2.amazonaws.com/i=
+nformationplanetaustralia/Signature/images/NHS_09.png" alt=3D"" width=3D"34=
+" height=3D"34"></a></td>
+      <td><br></td>
+    </tr>
+    <tr>
+      <th colspan=3D"7" scope=3D"row"><a href=3D"https://www.informationpla=
+net.com.au/" target=3D"_blank"><img src=3D"https://s3-ap-southeast-2.amazon=
+aws.com/informationplanetaustralia/Signature/images/NHS_10.png" alt=3D"" wi=
+dth=3D"500" height=3D"40"></a></th>
+    </tr>
+    <tr>
+      <th colspan=3D"7" scope=3D"row"><a href=3D"https://www.informationpla=
+net.com.au/" target=3D"_blank"><img alt=3D"meal voucher" src=3D"https://s3-=
+ap-southeast-2.amazonaws.com/informationplanetaustralia/Signature/images/PO=
+M/Email_HTML.png" title=3D"month promo" width=3D"500"></a></th>
+    </tr>
+  </tbody>
+</table>
+
+
+</div></div></div><br></div><br><div class=3D"gmail_quote"><div dir=3D"ltr"=
+ class=3D"gmail_attr">On Mon, Jun 28, 2021 at 12:12 PM Andrej Krupovec &lt;=
+<a href=3D"mailto:andrejkrupovec@gmail.com">andrejkrupovec@gmail.com</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div di=
+r=3D"ltr"><div style=3D"font-family:georgia,serif">Hey=C2=A0Olga,</div><div=
+ style=3D"font-family:georgia,serif"><br></div><div style=3D"font-family:ge=
+orgia,serif">I&#39;ll take my time and gonna focus on cyber security.=C2=A0=
+</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_=
+attr">On Fri, 25 Jun 2021 at 18:08, Olga Romanova &lt;<a href=3D"mailto:olg=
+a.romanova@informationplanet.com.au" target=3D"_blank">olga.romanova@inform=
+ationplanet.com.au</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote=
+" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);=
+padding-left:1ex"><div dir=3D"ltr"><div>Hi Andrej,=C2=A0</div><div><br></di=
+v><div>how are you today? Hope you are safe and not in lockdown :/</div><di=
+v><br></div><div>As we spoke, I checked some new courses for you.</div><div=
+><br></div><div><br></div><div>Nutrition:</div><div><br></div><div><b>Torre=
+ns University - Bachelor of Health Science (Clinical Nutrition)</b></div><d=
+iv>- Sydney, Brisbane, Melbourne</div><div>- 3 years</div><div>- price: 16.=
+030 AUD=C2=A0
+
+ (indicative annual fee, 2021)
+
+</div><div>- intake in September 2021 or February 2022</div><div><br></div>=
+<div><br></div><div><b>University of Newcastle - Bachelor of Food Science a=
+nd Human Nutrition</b></div><div>- Central Coast</div><div>- 3 years</div><=
+div>- price:=C2=A0AUD 40,300=C2=A0
+
+(indicative annual fee, 2021)
+
+</div><div>- intake February 2022</div><div><br></div><div><br></div><div><=
+b>Flinders University - Bachelor of Human Nutrition</b></div><div>- Adelaid=
+e=C2=A0</div><div>- 3 years=C2=A0=C2=A0<br></div><div>- price:=C2=A0AUD 38.=
+000=C2=A0 =C2=A0(indicative annual fee, 2021)=C2=A0=C2=A0<br></div><div>- i=
+ntake March 2022</div><div><br></div><div><br></div><div><b>Western Sydney =
+University -=C2=A0
+
+Bachelor of Science (Nutrition and Food Science)
+
+</b></div><div><div>-=C2=A0 Sydney</div><div>- 3 years</div><div>- price:=
+=C2=A0AUD 32.000=C2=A0 (indicative annual fee, 2021)
+
+</div><div>- intake February 2022</div><div></div></div><div><br></div><div=
+><br></div><div><br></div><div>Cyber Security:=C2=A0</div><div><br></div><d=
+iv><b>ACBI - Advanced Diploma of Information Technology (Cyber Security)</b=
+></div><div>- Sydney</div><div>- 2 years</div><div>- 1.500 AUD per term (12=
+.000 total)=C2=A0+ 200 enrollment fee=C2=A0</div><div>(can be packaged with=
+ Diploma of IT - extra 1 year)</div><div><br></div><div><br></div><div><b>K=
+ent Institute - Bachelor of Information Technology (Cyber Security)</b></di=
+v><div>- Sydney</div><div>- 3 years</div><div>- price: 14.600 AUD
+
+(indicative annual fee, 2021)
+
+</div><div>- price with scholarship (you would need to keep having=C2=A0goo=
+d grades): 11.900 AUD=C2=A0
+
+(indicative annual fee, 2021)
+
+</div><div>- intake: November=C2=A02021</div><div><br></div><div><br></div>=
+<div><b>Flinders University -=C2=A0
+
+Bachelor of Information Technology (Network and Cybersecurity Systems)=20
+
+</b></div><div><div>- Adelaide=C2=A0</div><div>- 3 years=C2=A0=C2=A0<br></d=
+iv><div>- price:=C2=A0AUD 36.000=C2=A0 =C2=A0(indicative annual fee, 2021)=
+=C2=A0=C2=A0<br></div><div>- intake March 2022</div></div><div><br></div><d=
+iv><br></div><div>Please let me know if you find any of the courses interes=
+ting for you or you would like me to check anything else :)</div><div><br><=
+/div><div>Have a great day and=C2=A0enjoy the weekend! Stay safe!</div><div=
+><br></div><div>Olga</div><div><br></div><div><div dir=3D"ltr"><div dir=3D"=
+ltr">
+<table width=3D"500" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+  <tbody>
+    <tr>
+      <th rowspan=3D"3" scope=3D"row"><img src=3D"https://informationplanet=
+australia.s3-ap-southeast-2.amazonaws.com/Signature/Sydney/OlgaRomanova.png=
+" alt=3D"" style=3D"margin-bottom: 0px; padding-bottom: 0px;" width=3D"210"=
+ border=3D"0" align=3D"bottom"></th>
+      <td colspan=3D"5"><br></td>
+      <td><img src=3D"https://s3-ap-southeast-2.amazonaws.com/informationpl=
+anetaustralia/Signature/images/NHS_02.png" alt=3D"" width=3D"160" height=3D=
+"44"></td>
+    </tr>
+    <tr>
+      <td colspan=3D"6"><p><span><span><b>Olga Romanova</b></span><b><br>
+      </b>Education Planner<br>
+      <br>
+      <b>Phone:</b> (612) 9283 6161<br>
+      <img src=3D"https://informationplanetaustralia.s3-ap-southeast-2.amaz=
+onaws.com/Signature/images/WhatsApp-Icon.png" alt=3D"" width=3D"28" height=
+=3D"28" align=3D"absmiddle"> (+61) 439559941</span></p>
+        <p><b>Head Office</b><br>
+      Level 3, 484 Kent St - Sydney 2000 - NSW</p></td>
+    </tr>
+    <tr>
+      <td><a href=3D"https://www.facebook.com/IP.Australia/" target=3D"_bla=
+nk"><img src=3D"https://s3-ap-southeast-2.amazonaws.com/informationplanetau=
+stralia/Signature/images/NHS_05.png" alt=3D"" width=3D"34" height=3D"34"></=
+a></td>
+      <td><a href=3D"https://www.instagram.com/informationplanetaustralia/"=
+ target=3D"_blank"><img src=3D"https://s3-ap-southeast-2.amazonaws.com/info=
+rmationplanetaustralia/Signature/images/NHS_06.png" alt=3D"" width=3D"35" h=
+eight=3D"35"></a></td>
+      <td><a href=3D"https://www.linkedin.com/company/information-planet/" =
+target=3D"_blank"><img src=3D"https://s3-ap-southeast-2.amazonaws.com/infor=
+mationplanetaustralia/Signature/images/NHS_07.png" alt=3D"" width=3D"34" he=
+ight=3D"34"></a></td>
+      <td>=C2=A0</td>
+      <td><a href=3D"https://www.youtube.com/channel/UCk_ueM9PiyoDnb2vPKqmH=
+ww" target=3D"_blank"><img src=3D"https://s3-ap-southeast-2.amazonaws.com/i=
+nformationplanetaustralia/Signature/images/NHS_09.png" alt=3D"" width=3D"34=
+" height=3D"34"></a></td>
+      <td><br></td>
+    </tr>
+    <tr>
+      <th colspan=3D"7" scope=3D"row"><a href=3D"https://www.informationpla=
+net.com.au/" target=3D"_blank"><img src=3D"https://s3-ap-southeast-2.amazon=
+aws.com/informationplanetaustralia/Signature/images/NHS_10.png" alt=3D"" wi=
+dth=3D"500" height=3D"40"></a></th>
+    </tr>
+    <tr>
+      <th colspan=3D"7" scope=3D"row"><a href=3D"https://www.informationpla=
+net.com.au/" target=3D"_blank"><img alt=3D"meal voucher" src=3D"https://s3-=
+ap-southeast-2.amazonaws.com/informationplanetaustralia/Signature/images/PO=
+M/Email_HTML.png" title=3D"month promo" width=3D"500"></a></th>
+    </tr>
+  </tbody>
+</table>
+
+
+</div></div></div></div>
+</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
+><div dir=3D"ltr"><div><div dir=3D"ltr"><font style=3D"background-color:rgb=
+(255,255,255)" face=3D"verdana, sans-serif" color=3D"#0b5394">Respectfully,=
+</font><div><font style=3D"background-color:rgb(255,255,255)" face=3D"verda=
+na, sans-serif" color=3D"#0b5394"><br></font></div><div><b><font style=3D"b=
+ackground-color:rgb(255,255,255)" face=3D"verdana, sans-serif" color=3D"#0b=
+5394">Andrej Krupovec</font></b></div></div></div></div></div>
+</blockquote></div></div>
+
+--000000000000e2427305c5cf5008--
