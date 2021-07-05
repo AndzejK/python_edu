@@ -8,7 +8,7 @@ _myFunction.separator()
 xfile=open('files_to_read/email_chat.txt')
 for line in xfile:
     line=line.rstrip()
-    if not line.startswith('From:'):
+    if not line.startswith('From:'): #if it's true (I can't find 'From:' come back to the start of the loop)
         continue
     words=line.split()
     email=words[3]
