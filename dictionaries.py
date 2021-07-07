@@ -9,7 +9,7 @@ _myFunction.separator()
 print(age)
 _myFunction.separator()
 
-#to count how many items/names in the list
+#to count how many items/names in the list (Counting)
 counts=dict()
 names=["Andrey","Mark","Pavel","Brodie","Andrey"]
 for name in names:
@@ -18,4 +18,12 @@ for name in names:
     else:
         counts[name]=counts[name]+1
 print(counts)
-    
+counts={}
+_myFunction.separator()
+#.get() method does the same as the lines 16, 17, 18, 19 (Counting)
+for name in names:
+    counts[name]=counts.get(name,0)+1
+print(counts)
+_myFunction.separator()
+#The syntex would be if the following key exists in the dictionary if not will print default value; 
+print(counts.get("Catie",'Nope she is not interesting in you')) 
