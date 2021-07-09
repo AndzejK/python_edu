@@ -1,0 +1,1 @@
+But that’s not a problem because the elements of a dictionary are never indexed with integer indices.
