@@ -5,10 +5,15 @@ print(y)
 test="I Andrey"
 y_test=re.findall('[AEIOU]+',test) #[AEIOU]set of characters but like just a single character if it finds from the set one character it puts into a list
 print(y_test)
+print('----')
 email="From andrejk@gmail.com Sat Jan 5 09:12 test@SS.lt"
 x_email=re.findall('^From \S+@\S+',email) #['From andrejk@gmail.com']
 y_email=re.findall('\S+@\S+',email) #['andrejk@gmail.com', 'test@SS.lt']
 z_email=re.findall('^From (\S+@\S+)',email) #['andrejk@gmail.com'] "()" parenthesis indicate where to start parse from but without "From" it's just more precise method to parse string
+a_email=re.findall('@([^ ]*)',email) #find just host name; ['gmail.com', 'SS.lt']
+b_email=re.findall('^From .*@([^ ]*)',email) #
+print(a_email)
+print(b_email)
 print(x_email)
 print(y_email)
 print(z_email)
