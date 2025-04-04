@@ -711,4 +711,40 @@ def tri_recursion(k): # 3 | 2 | 1 | 0
   return result
 
 # print("Recursion Example Results:")
-tri_recursion(3)
+# tri_recursion(3)
+
+def greet(name: str) -> str:
+    # Returns a greeting msg.
+    return f"Hey, {name}"
+
+getName=greet("Andrey")
+
+def divide(a: float,b:float) -> tuple[float,float]:
+    quotient = a // b # /ˈkwəʊʃnt/
+    remainder = a % b
+    return quotient,remainder
+
+# print(divide(10,5),10/5)
+def power(base: int, exponent: int = 2) -> int:
+    return base ** exponent
+# print(power(10))
+
+def log_data(*args,**kwargs):
+    print("Positional:",args)
+    print("Keyword:",kwargs)
+# log_data(1,2,4,3,"aaa",5,7,8,1,name="X",age="99")
+# log_data(1, 2, name="Alice", age=30)
+
+def outer(x):
+    def inner(y):
+        return x + y
+    return inner
+
+def uselessFn():
+    pass
+
+# print(outer(5)(3))
+# print(type(uselessFn()))
+addFive=outer(5) # Now, addFive is essentially a specialized version of inner where x is already "remembered" as 5.
+# print(addFive)
+# print(addFive(3))
