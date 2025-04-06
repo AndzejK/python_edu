@@ -1,4 +1,5 @@
 class Person:
+  # self - Reference to the instance of the Person class. Used to access instance variables and methods. The parameter name could be different, but 'self' is conventional in Python.
   def __init__(self, name, age):
     self.name = name
     self.age = age
