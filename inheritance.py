@@ -189,23 +189,29 @@ class MixinLogger:
 
 # create a suer
 class User:
-    def __ini__(self,name):
-        self.username=name
+    def __init__(self, username):
+        self.username=username
     
     def greet(self):
         return f"Hey, {self.username}"
 
 class LoggedUser(User,MixinLogger):
-    def __init__(self, name):
-        super().__init__(self, name)
-        self.log(f"Created user {name}")
+    def __init__(self, username):
+        super().__init__(username)
+        self.log(f"Created user {username}")
     
     def greet(self):
         msg=super().greet()
         self.log(f"User {self.username} was greeted.")
         return msg
 
-rock=User("rock")
-print(rock)
+msg_1=MixinLogger()
+msg_1.log("Testing logging...")
+
+logged_usr=LoggedUser("Andrew")
+
+
+
+
 
 ######## END: Simple Logging ########
