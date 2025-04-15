@@ -189,29 +189,48 @@ class MixinLogger:
 
 # create a suer
 class User:
-    def __init__(self, username):
-        self.username=username
+    def __init__(self, name):
+        self.username=name
     
     def greet(self):
         return f"Hey, {self.username}"
 
 class LoggedUser(User,MixinLogger):
-    def __init__(self, username):
-        super().__init__(username)
-        self.log(f"Created user {username}")
+    def __init__(self, name): 
+        super().__init__(name) # the var SELF is auto-created by Python and we tell what to inherita and if not then what will happen? it will throw an error
+        self.log(f"Created user {name}")
     
     def greet(self):
-        msg=super().greet()
+        msg=super().greet() # what to inerit?
         self.log(f"User {self.username} was greeted.")
         return msg
 
-msg_1=MixinLogger()
-msg_1.log("Testing logging...")
-
-logged_usr=LoggedUser("Andrew")
-
-
-
-
+# logged_usr=LoggedUser("Andrew")
+# logged_usr.greet()
 
 ######## END: Simple Logging ########
+
+######## START: W3S Sample ########
+
+# superClass
+class Person():
+    def __init__(self,fname,lname):
+        self.f_name=fname
+        self.l_name=lname
+    
+    def print_name(self):
+        return f"Hey {self.f_name} {self.l_name}!"
+
+# derived class
+class Student(Person):
+    def __init__(self,fname,lname,graduation_year=None):
+        super().__init__(fname,lname) # No self, no elements names!
+        self.graduation_year=graduation_year
+
+andzejk=Student("Andrew","Crusible",2016)
+print(andzejk.graduation_year)
+andzejk.graduation_year=2013
+print(andzejk.graduation_year)
+
+
+######## END: W3S Sample ########
