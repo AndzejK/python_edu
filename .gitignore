@@ -3,6 +3,6 @@ private.py
 
 # Python cache directories
 __pycache__/         
-
+tmp/
 # Python compiled files
 *.py[cod]            
